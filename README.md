@@ -239,6 +239,6 @@ Besoin d'aide ?
 
 ---
 
-**Made with ❤️ for students and educators**
+**Made by ZAKARIAE [link](https://www.linkedin.com/in/zakariae-el-haddouchi-992474339/) with ❤️ for students and educators**
 
 Dernière mise à jour : Janvier 2026
