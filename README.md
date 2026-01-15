@@ -1,89 +1,94 @@
-# VisionMaster 
+# VisionMaster
 
 **Un assistant d'apprentissage adaptatif powered by OpenRouter.ai**
 
-VisionMaster est une application web intelligent qui transforme vos cours (PDF, TXT) en plans d'étude personnalisés et génère des questions d'examen adaptées à votre niveau et contexte d'apprentissage.
+VisionMaster est une application web intelligente qui transforme vos cours (PDF, TXT) en plans d'étude personnalisés et génère des questions d'examen adaptées à votre niveau et contexte d'apprentissage.
 
-##  Features
+## Features
 
-- ** Analyse de Documents** : Upload vos cours, l'IA analyse et extrait automatiquement le contexte
-- ** Quiz Adaptatif** : Génération de questions d'examen basées sur vos documents
-- ** Fiches de Révision Dynamiques** : Cours structuré automatiquement généré selon votre contenu
-- ** Chat Pédagogique** : Posez des questions avec possibilité de partager des documents
-- ** Streaming en Temps Réel** : Réponses fluides et progressives
-- ** Responsive Design** : Fonctionne sur desktop et mobile
+* Analyse de documents : import de cours, analyse et extraction automatique du contexte
+* Quiz adaptatif : génération de questions d'examen basées sur vos documents
+* Fiches de révision dynamiques : cours structurés générés automatiquement
+* Chat pédagogique : questions/réponses avec possibilité de partager des documents
+* Streaming en temps réel : réponses fluides et progressives
+* Responsive design : desktop et mobile
 
-##  Prérequis
+## Prérequis
 
-- **Node.js** >= 16
-- **OpenRouter API Key** (gratuit : https://openrouter.ai)
+* Node.js >= 16
+* OpenRouter API Key ([https://openrouter.ai](https://openrouter.ai))
 
-##  Installation
+## Installation
 
-1. **Clonez ou ouvrez le projet**
+1. Clonez ou ouvrez le projet
+
    ```bash
    cd ModulRevsion
    ```
 
-2. **Installez les dépendances**
+2. Installez les dépendances
+
    ```bash
    npm install
    ```
 
-3. **Configurez l'API Key**
-   - Allez sur [OpenRouter.ai](https://openrouter.ai)
-   - Créez un compte gratuit et récupérez votre clé API
-   - Ouvrez `.env.local` et mettez à jour :
+3. Configurez l'API Key
+
+   * Créez un compte sur OpenRouter.ai et récupérez votre clé API
+   * Ouvrez `.env.local` et mettez à jour :
+
    ```env
-   VITE_OPENROUTER_API_KEY=votre_clé_api_ici
+   VITE_OPENROUTER_API_KEY=votre_cle_api_ici
    ```
 
-4. **Lancez le serveur de développement**
+4. Lancez le serveur de développement
+
    ```bash
    npm run dev
    ```
 
-5. **Ouvrez dans votre navigateur**
+5. Ouvrez dans votre navigateur
+
    ```
    http://localhost:5173
    ```
 
-##  Guide d'Utilisation
+## Guide d'Utilisation
 
-### 1️⃣ Importer un Document
+### Importer un document
 
-1. Cliquez sur le bouton **Upload** en haut à droite
+1. Cliquez sur le bouton Upload en haut à droite
 2. Sélectionnez votre PDF ou TXT (cours, résumé, notes)
 3. L'IA analyse automatiquement et crée un contexte personnalisé
 4. Les fiches de révision se régénèrent selon votre contenu
 
-### 2️⃣ Générer des Questions
+### Générer des questions
 
-1. Allez dans l'onglet **Quiz**
-2. Activez **Utiliser l'IA** pour générer des questions dynamiques
+1. Allez dans l'onglet Quiz
+2. Activez Utiliser l'IA pour générer des questions dynamiques
 3. Les questions s'adaptent au contexte de votre document
 4. Répondez et consultez les réponses
 
-### 3️⃣ Discuter avec VisionBot
+### Discuter avec VisionBot
 
-1. Ouvrez le chat (💬 en bas à droite)
+1. Ouvrez le chat depuis l'interface
 2. Posez des questions sur vos cours
 3. Partagez des documents pour des analyses spécifiques
 4. Obtenez des explications et conseils pédagogiques
 
-### 4️⃣ Réviser avec les Fiches
+### Réviser avec les fiches
 
 1. Consultez les fiches générées automatiquement
 2. Chaque fiche couvre un sujet clé de votre cours
-3. Naviguer avec le menu latéral
+3. Naviguez avec le menu latéral
 4. Les fiches se mettent à jour quand vous changez de document
 
-##  Architecture
+## Architecture
 
 ```
 ModulRevsion/
 ├── controllers/
-│   └── AppController.ts          # Logique métier & state management
+│   └── AppController.ts          # Logique métier et gestion d'état
 ├── services/
 │   ├── ChatService.ts            # Service chat OpenRouter
 │   ├── GeminiQuestionProvider.ts # Générateur de questions
@@ -101,18 +106,17 @@ ModulRevsion/
 └── .env.local                    # Configuration (API keys)
 ```
 
-##  Stack Technique
+## Stack Technique
 
-| Layer | Technology |
-|-------|-----------|
-| **Frontend** | React 19 + TypeScript |
-| **Build** | Vite 6 |
-| **Styling** | Tailwind CSS |
-| **Icons** | Lucide React |
-| **AI API** | OpenRouter (GPT-3.5-turbo) |
-| **State** | React Hooks (useState, useEffect) |
+| Layer    | Technology                 |
+| -------- | -------------------------- |
+| Frontend | React 19 + TypeScript      |
+| Build    | Vite 6                     |
+| Styling  | Tailwind CSS               |
+| AI API   | OpenRouter (GPT-3.5-turbo) |
+| State    | React Hooks                |
 
-##  Configuration
+## Configuration
 
 ### Modèle IA
 
@@ -121,124 +125,114 @@ Par défaut : `openai/gpt-3.5-turbo`
 Pour changer, modifiez dans les services :
 
 **ChatService.ts (ligne 15)**
+
 ```typescript
-private modelId: string = "openai/gpt-3.5-turbo"; // ou tout autre modèle OpenRouter
+private modelId: string = "openai/gpt-3.5-turbo";
 ```
 
 **GeminiQuestionProvider.ts (ligne 9)**
+
 ```typescript
 private modelId: string = "openai/gpt-3.5-turbo";
 ```
 
 ### Modèles disponibles via OpenRouter
 
-- `openai/gpt-3.5-turbo` (rapide, économique)
-- `openai/gpt-4` (meilleure qualité)
-- `anthropic/claude-3-opus` (très puissant)
-- [Voir tous les modèles](https://openrouter.ai/models)
+* openai/gpt-3.5-turbo
+* openai/gpt-4
+* anthropic/claude-3-opus
 
-##  Build & Deploy
+Liste complète : [https://openrouter.ai/models](https://openrouter.ai/models)
+
+## Build et Déploiement
 
 ### Build pour production
+
 ```bash
 npm run build
 ```
 
-Crée un dossier `dist/` prêt à être déployé sur :
-- **Vercel** / **Netlify** / **GitHub Pages**
-- **Docker** / **Kubernetes**
-- N'importe quel serveur HTTP
+Génère un dossier `dist/` prêt à être déployé sur Vercel, Netlify, GitHub Pages ou tout serveur HTTP.
 
-### Déployer sur Vercel (gratuit)
+### Déployer sur Vercel
+
 ```bash
 npm install -g vercel
 vercel
 ```
 
-## 🐛 Dépannage
+## Dépannage
 
-**Q: "Clé API manquante"**
-- ✅ Vérifiez que `.env.local` contient `VITE_OPENROUTER_API_KEY=...`
-- ✅ Redémarrez le serveur (`npm run dev`)
+* Clé API manquante : vérifiez `.env.local` et redémarrez le serveur
+* Erreur 429 (quota) : vérifiez votre solde OpenRouter
+* Questions statiques : assurez-vous que Utiliser l'IA est activé et que l'analyse est terminée
+* Chat inactif : vérifiez la connexion et les logs du terminal
 
-**Q: "Erreur 429 - Quota dépassé"**
-- ✅ Vérifiez votre solde/limite sur [OpenRouter](https://openrouter.ai)
-- ✅ Upgrader vers un plan payant si nécessaire
-
-**Q: Les questions restent statiques après upload**
-- ✅ Vérifiez que l'onglet Quiz affiche "Utiliser l'IA"
-- ✅ Attendez que l'analyse du document soit terminée
-- ✅ Vérifiez la console (F12) pour les erreurs
-
-**Q: Le chat ne répond pas**
-- ✅ Vérifiez votre connexion internet
-- ✅ Consultez les logs : `npm run dev` et vérifiez le terminal
-
-## 📝 Variables d'Environnement
+## Variables d'Environnement
 
 ```env
-# Requis
 VITE_OPENROUTER_API_KEY=sk_openrouter_xxxxx
-
-# Optionnel
 VITE_API_URL=https://openrouter.ai/api/v1
 ```
 
-## 📚 Fonctionnalités Clés Détaillées
+## Fonctionnalités Clés
 
-### Analyse de Context
-- Extraction automatique du domaine (ML, Vision, etc.)
-- Détection des sujets et sous-sujets
-- Niveau de difficulté estimé
-- Format standardisé pour l'IA
+### Analyse de contexte
 
-### Génération de Questions
-- 3 questions par révision
-- Mix code + théorie
-- Réponses concises et pédagogiques
-- Difficulté: Facile / Moyen / Difficile
+* Extraction automatique du domaine
+* Détection des sujets et sous-sujets
+* Estimation du niveau de difficulté
+* Format standardisé pour l'IA
 
-### Chat Intelligent
-- Conversation multi-tour
-- Support des pièces jointes (PDF/images)
-- Streaming des réponses
-- Historique conservé par session
+### Génération de questions
 
-## 🎨 Personnalisation
+* Trois questions par révision
+* Mix théorie et code
+* Réponses concises et pédagogiques
+* Difficultés : facile, moyen, difficile
 
-### Couleurs & Thème
-Modifiez dans `tailwind.config.js` ou directement dans les composants :
+### Chat intelligent
+
+* Conversation multi-tour
+* Support des pièces jointes
+* Streaming des réponses
+* Historique par session
+
+## Personnalisation
+
+### Couleurs et thème
+
+Modifiez dans `tailwind.config.js` ou les composants :
+
 ```typescript
-"from-brand-600 to-indigo-600" // Gradient principal
+"from-brand-600 to-indigo-600"
 ```
 
-### Prompts Système
-Modifiez `systemInstruction` dans `ChatService.ts` pour changer la personnalité du bot.
+### Prompts système
 
-## 📊 Performance
+Modifiez `systemInstruction` dans `ChatService.ts` pour ajuster la personnalité du bot.
 
-- **First Paint** : < 1s
-- **Chat Streaming** : réponses fluides
-- **Upload** : support jusqu'à 20MB (limité par OpenRouter)
-- **Responsive** : optimisé pour mobile (375px - 4K)
+## Performance
 
-## 📄 License
+* First Paint < 1s
+* Chat streaming fluide
+* Upload jusqu'à 20MB
+* Responsive de mobile à 4K
 
-MIT - Libre d'utilisation et de modification
+## Licence
 
-## 🤝 Contribution
+MIT
 
-Les contributions sont bienvenues ! Fork, modifiez, et créez une Pull Request.
+## Contribution
 
-## 📧 Support
+Forkez le projet et proposez une Pull Request.
 
-Besoin d'aide ?
-- 📖 Consultez ce README
-- 🐛 Ouvrez une issue
-- 💬 Vérifiez la console du navigateur (F12)
+## Support
+
+Consultez le README, ouvrez une issue ou vérifiez la console du navigateur.
 
 ---
 
-**Made by ZAKARIAE [link](https://www.linkedin.com/in/zakariae-el-haddouchi-992474339/) with ❤️ for students and educators**
+Made by ZAKARIAE ([https://www.linkedin.com/in/zakariae-el-haddouchi-992474339/](https://www.linkedin.com/in/zakariae-el-haddouchi-992474339/)) for students and educators
 
 Dernière mise à jour : Janvier 2026
