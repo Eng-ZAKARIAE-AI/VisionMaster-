@@ -1,24 +1,24 @@
-# VisionMaster 🧠
+# VisionMaster 
 
 **Un assistant d'apprentissage adaptatif powered by OpenRouter.ai**
 
 VisionMaster est une application web intelligent qui transforme vos cours (PDF, TXT) en plans d'étude personnalisés et génère des questions d'examen adaptées à votre niveau et contexte d'apprentissage.
 
-## 🚀 Features
+##  Features
 
-- **📚 Analyse de Documents** : Upload vos cours, l'IA analyse et extrait automatiquement le contexte
-- **🎯 Quiz Adaptatif** : Génération de questions d'examen basées sur vos documents
-- **📖 Fiches de Révision Dynamiques** : Cours structuré automatiquement généré selon votre contenu
-- **💬 Chat Pédagogique** : Posez des questions avec possibilité de partager des documents
-- **🔄 Streaming en Temps Réel** : Réponses fluides et progressives
-- **📱 Responsive Design** : Fonctionne sur desktop et mobile
+- ** Analyse de Documents** : Upload vos cours, l'IA analyse et extrait automatiquement le contexte
+- ** Quiz Adaptatif** : Génération de questions d'examen basées sur vos documents
+- ** Fiches de Révision Dynamiques** : Cours structuré automatiquement généré selon votre contenu
+- ** Chat Pédagogique** : Posez des questions avec possibilité de partager des documents
+- ** Streaming en Temps Réel** : Réponses fluides et progressives
+- ** Responsive Design** : Fonctionne sur desktop et mobile
 
-## 📋 Prérequis
+##  Prérequis
 
 - **Node.js** >= 16
 - **OpenRouter API Key** (gratuit : https://openrouter.ai)
 
-## 🛠️ Installation
+##  Installation
 
 1. **Clonez ou ouvrez le projet**
    ```bash
@@ -48,7 +48,7 @@ VisionMaster est une application web intelligent qui transforme vos cours (PDF, 
    http://localhost:5173
    ```
 
-## 📖 Guide d'Utilisation
+##  Guide d'Utilisation
 
 ### 1️⃣ Importer un Document
 
@@ -78,7 +78,7 @@ VisionMaster est une application web intelligent qui transforme vos cours (PDF, 
 3. Naviguer avec le menu latéral
 4. Les fiches se mettent à jour quand vous changez de document
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ModulRevsion/
@@ -101,7 +101,7 @@ ModulRevsion/
 └── .env.local                    # Configuration (API keys)
 ```
 
-## 🔌 Stack Technique
+##  Stack Technique
 
 | Layer | Technology |
 |-------|-----------|
@@ -112,7 +112,7 @@ ModulRevsion/
 | **AI API** | OpenRouter (GPT-3.5-turbo) |
 | **State** | React Hooks (useState, useEffect) |
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Modèle IA
 
@@ -137,7 +137,7 @@ private modelId: string = "openai/gpt-3.5-turbo";
 - `anthropic/claude-3-opus` (très puissant)
 - [Voir tous les modèles](https://openrouter.ai/models)
 
-## 🚀 Build & Deploy
+##  Build & Deploy
 
 ### Build pour production
 ```bash
